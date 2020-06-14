@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 935287755}
   - component: {fileID: 935287754}
   - component: {fileID: 935287757}
-  - component: {fileID: 935287758}
+  - component: {fileID: 935287756}
   m_Layer: 0
   m_Name: CAKE
   m_TagString: Respawn
@@ -389,12 +389,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935287753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.26, y: -3.72, z: 0}
+  m_LocalPosition: {x: 5.2, y: 3.75, z: 0}
   m_LocalScale: {x: 0.63412917, y: 0.63412917, z: 0.63412917}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &935287756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935287753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaeae447c11e7f94fa1f2e36d0c1d9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &935287757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -421,18 +433,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.5}
   m_EdgeRadius: 0
---- !u!114 &935287758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935287753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e886c568b081f439b49787f9115b30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1321050561
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 1978800156}
   - component: {fileID: 1978800160}
   - component: {fileID: 1978800159}
-  - component: {fileID: 1978800162}
+  - component: {fileID: 1978800161}
   - component: {fileID: 1978800158}
   m_Layer: 0
   m_Name: wheatly
@@ -877,7 +877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978800155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.49, y: -1.91, z: 0}
+  m_LocalPosition: {x: -5.51, y: -4.07, z: 0}
   m_LocalScale: {x: 0.27281016, y: 0.27281016, z: 0.27281016}
   m_Children: []
   m_Father: {fileID: 0}
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978800155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b4126a1040e8240b0820f862dc9f55, type: 3}
+  m_Script: {fileID: 11500000, guid: 00bc99db645af2d4e8c09a0de78e0500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -934,7 +934,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1978800162
+--- !u!114 &1978800161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

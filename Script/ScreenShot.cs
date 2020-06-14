@@ -33,7 +33,7 @@ public class ScreenShot : MonoBehaviour {
             Quit();
         }
         string name;
-        name = "Down" + Count + ".png";
+        name = "Left" + Count + ".png";
         RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
         camera.targetTexture = rt;
         Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
