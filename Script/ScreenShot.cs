@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 
 public class ScreenShot : MonoBehaviour {
-    static int Count=501;
+    static int Count=499;
     public Camera camera;       //보여지는 카메라.
  
     private int resWidth;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class RightUpTrainPlayer : MonoBehaviour
+public class RightDownTrainPlayer : MonoBehaviour
 {
     public float speed;
     public Vector2 speed_vec;
@@ -13,9 +13,9 @@ public class RightUpTrainPlayer : MonoBehaviour
     void Start()
     {
         float MinX = -5.51f;
-        float MaxX = RightUpTrainCAKE.x-2.47f;
-        float MinY = -4.07f;
-        float MaxY = RightUpTrainCAKE.y-1.64f;
+        float MaxX = RightDownTrainCAKE.x-2.47f;
+        float MinY = RightDownTrainCAKE.y+2.07f;
+        float MaxY = 3.58f;
  
         float randomX = Random.Range(MinX,MaxX); //적이 나타날 X좌표를 랜덤으로 생성해 줍니다.
         float randomY =  Random.Range(MinY,MaxY);//적이 나타날 X좌표를 랜덤으로 생성해 줍니다.
