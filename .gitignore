@@ -1,0 +1,10 @@
+*.meta
+*.jpg
+*.npy
+Game/Library/*
+Game/Logs/*
+Game/Packages/*
+Game/ProjectSettings/*
+Game/Temp/*
+Traindata/*
+*.hdf5
