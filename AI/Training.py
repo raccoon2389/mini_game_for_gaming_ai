@@ -24,13 +24,22 @@ m_check = ModelCheckpoint("model/--{epoch:02d}--{val_loss:.4f}.hdf5", monitor = 
 
 x = np.load("train.npy")
 y = np.load("y.npy")
-predx = Image.open("495.png").resize(((112,150)))
-predx= np.asarray(predx).reshape(1,150,112,3)
+predx = Image.open("495.png").resize(((150,112)))
+predx= np.asarray(predx).reshape(1,112,150,3)
 
 y = np_utils.to_categorical(y)
 def create_model():
     model = Sequential()
-    model.add(Conv2D(100,(3,3),activation='relu',input_shape=(150,112,3)))
+    model.add(Conv2D(200,(3,3),padding='same',activation='relu',input_shape=(112,150,3)))
+    model.add(Dropout(0.3))
+    model.add(MaxPooling2D(2,2))
+    model.add(Conv2D(200,(3,3),padding='same',activation='relu'))
+    model.add(Dropout(0.3))
+    model.add(MaxPooling2D(2,2))
+    model.add(Conv2D(100,(3,3),padding='same',activation='relu'))
+    model.add(Dropout(0.3))
+    model.add(MaxPooling2D(2,2))
+    model.add(Conv2D(100,(3,3),activation='relu'))
     model.add(Dropout(0.3))
     model.add(MaxPooling2D(2,2))
     model.add(Conv2D(100,(3,3),activation='relu'))
@@ -42,12 +51,17 @@ def create_model():
     model.add(Dropout(0.3))
     model.add(Dense(100,activation="relu"))
     model.add(Dropout(0.3))
-    model.add(Dense(50,activation="relu"))
+    model.add(Dense(100,activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(100,activation="relu"))
+    model.add(Dropout(0.3))
+
+    model.add(Dense(100,activation="relu"))
     model.add(Dropout(0.3))
 
     model.add(Dense(9,activation="softmax"))
 
-    model.compile(optimizer="adam",loss="mse",metrics=['acc'])
+    model.compile(optimizer="adam",loss="categorical_crossentropy",metrics=['acc'])
 
     return model
 
@@ -56,8 +70,8 @@ seed = np.random.seed(7)
 kf = KFold(n_splits=3, shuffle=True,random_state=seed)
 
 x_train,x_test , y_train,y_test = train_test_split(x,y,shuffle=True , random_state=seed)
-model = load_model('./model/--17--0.0117.hdf5')
-# model = create_model()
+# model = load_model('./model/--13--0.1927.hdf5')
+model = create_model()
 # for train_i,test_i in kf.split(x):
 #     train_x,train_y = x[train_i],y[train_i]
 #     test_x, test_y = x[test_i], y[test_i]
@@ -66,7 +80,7 @@ model = load_model('./model/--17--0.0117.hdf5')
 #     score = model.evaluate(test_x,test_y)
 #     print(score)
 
-# model.fit(x_train,y_train,batch_size=30,epochs=100,validation_split=0.25,callbacks=[m_check])
+model.fit(x_train,y_train,batch_size=30,epochs=100,validation_split=0.25,callbacks=[m_check])
 
 predy = model.evaluate(x_test,y_test)
 print(predy)

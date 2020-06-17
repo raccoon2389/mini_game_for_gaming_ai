@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class CAKE : MonoBehaviour
 {
+    public float stay = 0;
     static float y;
     
     public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
+        stay = 0;
 
         target = GameObject.FindGameObjectWithTag("Respawn");
 
@@ -25,11 +29,15 @@ public class CAKE : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        stay +=1;
     }
-
     // Update is called once per frame
     void Update()
     {
+        if (stay > 22f)
+        {
+            SceneManager.LoadScene("YOUWIN");
+        }
         
     }
 }

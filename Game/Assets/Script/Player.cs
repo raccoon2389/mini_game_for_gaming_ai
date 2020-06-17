@@ -27,17 +27,7 @@ public class Player : MonoBehaviour
     //     SceneManager.LoadScene("YOUWIN");
 
     // }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(stay>40f)
-        {
-            SceneManager.LoadScene("YOUWIN");
-        }
-        else
-        {
-            stay +=1f;
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
