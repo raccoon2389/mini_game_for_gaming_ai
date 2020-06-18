@@ -39,10 +39,13 @@ def create_model():
     model.add(Conv2D(100,(3,3),padding='same',activation='relu'))
     model.add(Dropout(0.3))
     model.add(MaxPooling2D(2,2))
-    model.add(Conv2D(100,(3,3),activation='relu'))
+    model.add(Conv2D(100,(3,3),padding='same',activation='relu'))
     model.add(Dropout(0.3))
     model.add(MaxPooling2D(2,2))
-    model.add(Conv2D(100,(3,3),activation='relu'))
+    model.add(Conv2D(100,(2,2),padding='same',activation='relu'))
+    model.add(Dropout(0.3))
+    model.add(MaxPooling2D(2,2))
+    model.add(Conv2D(100,(2,2),padding='same',activation='relu'))
     model.add(Dropout(0.3))
     model.add(MaxPooling2D(2,2))
 
@@ -70,7 +73,7 @@ seed = np.random.seed(7)
 kf = KFold(n_splits=3, shuffle=True,random_state=seed)
 
 x_train,x_test , y_train,y_test = train_test_split(x,y,shuffle=True , random_state=seed)
-# model = load_model('./model/--13--0.1927.hdf5')
+# model = load_model('./model/--100--0.0354.hdf5')
 model = create_model()
 # for train_i,test_i in kf.split(x):
 #     train_x,train_y = x[train_i],y[train_i]
@@ -81,6 +84,6 @@ model = create_model()
 #     print(score)
 
 model.fit(x_train,y_train,batch_size=30,epochs=100,validation_split=0.25,callbacks=[m_check])
-
+# 
 predy = model.evaluate(x_test,y_test)
 print(predy)
