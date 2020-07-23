@@ -24,7 +24,7 @@ m_check = ModelCheckpoint("model/--{epoch:02d}--{val_loss:.4f}.hdf5", monitor = 
 
 x = np.load("train.npy")
 print(x[0])
-'''
+
 y = np.load("y.npy")
 predx = Image.open("495.png").resize(((150,112)))
 predx= np.asarray(predx).reshape(1,112,150,3)
@@ -84,9 +84,9 @@ model = create_model()
 #     model.fit(train_x,train_y,batch_size=30,epochs=100,validation_split=0.25,callbacks=[m_check])
 #     score = model.evaluate(test_x,test_y)
 #     print(score)
+model.fit(x_train,y_train,batch_size=30,epochs=100,callbacks=[m_check],validation_data=[(x_val,y_val)])
 
 model.fit(x_train,y_train,batch_size=30,epochs=100,validation_split=0.25,callbacks=[m_check])
 # 
 predy = model.evaluate(x_test,y_test)
 print(predy)
-'''
